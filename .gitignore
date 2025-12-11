@@ -1,0 +1,95 @@
+# =========================
+# Node / React
+# =========================
+client/node_modules/
+client/dist/
+client/build/
+client/.vite/
+client/.eslintcache
+client/.env.local
+client/.env.development.local
+client/.env.production.local
+client/.env.test.local
+
+# Editor files
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# =========================
+# Go / Backend
+# =========================
+server/bin/
+server/vendor/
+server/tmp/
+server/.env
+server/*.log
+server/coverage/
+server/debug/
+server/.DS_Store
+
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# =========================
+# Docker
+# =========================
+# Docker build artifacts
+*.pid
+*.seed
+*.tar
+*.bak
+*.backup
+docker-data/
+.docker/
+
+# Exclude environment config files that may contain secrets
+.env
+
+# =========================
+# PostgreSQL
+# =========================
+# Local database files (if mounted)
+pgdata/
+postgres-data/
+*.sql~
+*.dump
+*.sql.gz
+*.backup
+
+# =========================
+# System / OS
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+log/
+npm-debug.log*
+yarn-error.log*
+debug.log
+
+# =========================
+# Coverage / Tests
+# =========================
+coverage/
+*.lcov
+*.coverage
+*.test
