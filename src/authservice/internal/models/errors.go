@@ -19,13 +19,8 @@ func (e AuthError) Code() int {
 }
 
 var (
-	ErrUsernameExists = AuthError{
-		err:  errors.New("username already exists"),
-		code: http.StatusConflict,
-	}
-
-	ErrEmailExists = AuthError{
-		err:  errors.New("email already exists"),
+	ErrUserExists = AuthError{
+		err:  errors.New("user already exists"),
 		code: http.StatusConflict,
 	}
 )
