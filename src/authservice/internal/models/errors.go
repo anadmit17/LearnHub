@@ -1,23 +1,31 @@
 package models
 
 import (
-	"fmt"
+	"errors"
 	"net/http"
 )
 
 type AuthError struct {
-	Error error
-	Code  int
+	err error
+	code  int
+}
+
+func (e AuthError) Error() string {
+	return e.err.Error()
+}
+
+func (e AuthError) Code() int {
+	return e.code
 }
 
 var (
 	ErrUsernameExists = AuthError{
-		Error: fmt.Errorf("User with this username is already exists"),
-		Code:  http.StatusConflict,
+		err: errors.New("username already exists"),
+		code:  http.StatusConflict,
 	}
 
 	ErrEmailExists = AuthError{
-		Error: fmt.Errorf("User with this email is already exists"),
-		Code:  http.StatusConflict,
+		err: errors.New("email already exists"),
+		code:  http.StatusConflict,
 	}
 )
