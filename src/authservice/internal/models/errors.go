@@ -6,8 +6,8 @@ import (
 )
 
 type AuthError struct {
-	err error
-	code  int
+	err  error
+	code int
 }
 
 func (e AuthError) Error() string {
@@ -20,12 +20,12 @@ func (e AuthError) Code() int {
 
 var (
 	ErrUsernameExists = AuthError{
-		err: errors.New("username already exists"),
-		code:  http.StatusConflict,
+		err:  errors.New("username already exists"),
+		code: http.StatusConflict,
 	}
 
 	ErrEmailExists = AuthError{
-		err: errors.New("email already exists"),
-		code:  http.StatusConflict,
+		err:  errors.New("email already exists"),
+		code: http.StatusConflict,
 	}
 )
