@@ -2,6 +2,6 @@ package service
 
 import "authservice/internal/models"
 
-type UserService interface {
-	CreateUser(user models.User) error
+type AuthService interface {
+	RegisterUser(user models.User) error
 }

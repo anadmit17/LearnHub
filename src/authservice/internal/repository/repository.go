@@ -2,7 +2,7 @@ package repository
 
 import "authservice/internal/models"
 
-type UserRepository interface {
-	CreateUser(user models.User)
-	Exists(user models.User) bool
+type AuthRepository interface {
+	RegisterUser(user models.User) error
+	Exists(user models.User) (bool, error)
 }
