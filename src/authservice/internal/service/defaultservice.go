@@ -9,7 +9,7 @@ type DefaultAuthService struct {
 	repo repository.AuthRepository
 }
 
-func NewDefaultUserService(repo repository.AuthRepository) *DefaultAuthService {
+func NewDefaultAuthService(repo repository.AuthRepository) *DefaultAuthService {
 	return &DefaultAuthService{
 		repo: repo,
 	}

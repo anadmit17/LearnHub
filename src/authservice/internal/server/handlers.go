@@ -1,6 +1,8 @@
 package server
 
-import "net/http"
+import (
+	"net/http"
+)
 
 func (s *HTTPServer) handleRegister(w http.ResponseWriter, r *http.Request) {
 	// POST /api/auth/register Creates a new user account
@@ -34,5 +36,5 @@ func (s *HTTPServer) handleSwagger(w http.ResponseWriter, r *http.Request) {
 
 func (s *HTTPServer) handleHealthCheck(w http.ResponseWriter, r *http.Request) {
 	// HealthCheck route
-	w.WriteHeader(http.StatusNotImplemented)
+	w.WriteHeader(http.StatusOK)
 }
