@@ -1,12 +1,32 @@
 package server
 
 import (
+	"encoding/json"
+	"log"
 	"net/http"
+
+	"authservice/internal/models"
 )
 
 func (s *HTTPServer) handleRegister(w http.ResponseWriter, r *http.Request) {
-	// POST /api/auth/register Creates a new user account
-	w.WriteHeader(http.StatusNotImplemented)
+	if r.Method != http.MethodPost {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		return
+	}
+
+	var user models.User
+
+	err := json.NewDecoder(r.Body).Decode(&user)
+	defer r.Body.Close()
+	
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		log.Println("error decoding request body:", err)
+		return
+	}
+
+	s.authService.RegisterUser(user)
+	w.WriteHeader(http.StatusCreated)
 }
 
 func (s *HTTPServer) handleLogin(w http.ResponseWriter, r *http.Request) {
@@ -35,6 +55,5 @@ func (s *HTTPServer) handleSwagger(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *HTTPServer) handleHealthCheck(w http.ResponseWriter, r *http.Request) {
-	// HealthCheck route
 	w.WriteHeader(http.StatusOK)
 }
