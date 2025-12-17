@@ -19,12 +19,12 @@ func NewHTTPServer(config *config.Config, authService service.AuthService) *HTTP
 	httpServer := HTTPServer{
 		config:      config,
 		authService: authService,
-		mux: http.NewServeMux(),
+		mux:         http.NewServeMux(),
 	}
-	
+
 	httpServer.registerHandlers()
 	server := http.Server{
-		Addr: ":" + config.ServerPort,
+		Addr:    ":" + config.ServerPort,
 		Handler: httpServer.mux,
 	}
 
